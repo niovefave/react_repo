@@ -3,15 +3,15 @@ import React, { useState } from 'react';
 const Notice = () => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [voList, setVoList] = useState([]);
+  const [noticeList, setNoticeList] = useState([]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
     const vo = { title, content };
-    const str = localStorage.getItem('voList');
-    const voList = str ? JSON.parse(str) : [];
-    voList.push(vo);
-    localStorage.setItem('voList', JSON.stringify(voList));
+    const str = localStorage.getItem('noticeList');
+    const noticeList = str ? JSON.parse(str) : [];
+    noticeList.push(vo);
+    localStorage.setItem('noticeList', JSON.stringify(noticeList));
   }
   function changeTitle(evt) {
     setTitle(evt.target.value);
@@ -21,8 +21,8 @@ const Notice = () => {
   }
 
   function showList() {
-    const str = localStorage.getItem('voList');
-    setVoList(JSON.parse(str));
+    const str = localStorage.getItem('noticeList');
+    setNoticeList(JSON.parse(str));
   }
 
   return (
@@ -38,9 +38,10 @@ const Notice = () => {
           placeholder="TITLE"
           onChange={changeTitle}
         />
+        <br />
         <input
           type="text"
-          name="title"
+          name="content"
           placeholder="CONTENT"
           onChange={changeContent}
         />
@@ -49,7 +50,7 @@ const Notice = () => {
 
       <hr />
       <h4>NOTICE LIST</h4>
-      <button onClick={showList}>등록</button>
+      <button onClick={showList}>조회</button>
       <table border={1}>
         <thead>
           <tr>
@@ -59,13 +60,13 @@ const Notice = () => {
           </tr>
         </thead>
         <tbody>
-          {voList.map((vo, idx) => {
+          {noticeList.map((notice, idx) => (
             <tr>
               <td>{idx + 1}</td>
-              <td>{vo.title}</td>
-              <td>{vo.content}</td>
-            </tr>;
-          })}
+              <td>{notice.title}</td>
+              <td>{notice.content}</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </>

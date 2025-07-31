@@ -36,8 +36,8 @@ const Board = () => {
     <>
       <h3>BOARD</h3>
 
-      <h4>BOARD INSERT</h4>
       <hr />
+      <h4>BOARD INSERT</h4>
       <form onSubmit={handleFormSubmit}>
         <input
           type="text"
