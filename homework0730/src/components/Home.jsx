@@ -10,6 +10,7 @@ const Home = () => {
         <h2>HOME</h2>
       </a>
       <a href="/board">board</a>
+      <span> / </span>
       <a href="/notice">notice</a>
       <Routes>
         <Route path="/board" element={<Board />}></Route>
