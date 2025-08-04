@@ -1,12 +1,13 @@
 import './App.css';
 import Counter from './components/Counter';
 import { Provider } from 'react-redux';
-import rootStore from './redux/store';
+import store from './redux/store';
+
 function App() {
   return (
     <>
-      <h1>React App15</h1>
-      <Provider store={rootStore}>
+      <h1>React App16</h1>
+      <Provider store={store}>
         <Counter />
       </Provider>
     </>
